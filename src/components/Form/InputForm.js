@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import ProductContext from "../store/product-context";
+import CartBtn from "./CartBtn";
 
 const InputForm = (props) => {
   const [medicineName, setMedicineName] = useState("");
@@ -10,7 +11,7 @@ const InputForm = (props) => {
   const addMedicineHandler = (event) => {
     event.preventDefault();
     prdctCtx.addMedicine({
-        id: Math.random().toString(), 
+      id: Math.random().toString(),
       name: medicineName,
       description: medicineDescription,
       price: medicinePrice,
@@ -32,34 +33,36 @@ const InputForm = (props) => {
   };
 
   return (
-    <form onSubmit={addMedicineHandler}>
-      <label htmlFor="medicineName">Medicine Name:</label>
-      <input
-        type="text"
-        id="medicineName"
-        value={medicineName}
-        onChange={medicineNameHandler}
-        required
-      />
-      <label htmlFor="description">Medicine Description:</label>
-      <input
-        type="text"
-        id="description"
-        value={medicineDescription}
-        onChange={medicineDescriptionHandler}
-        required
-      />
-      <label htmlFor="price">Medicine Price:</label>
-      <input
-        type="number"
-        id="price"
-        value={medicinePrice}
-        onChange={medicinePriceHandler}
-        required
-      />
-      <button type="submit">Add Medicine</button>
-      <button onClick={props.onShowCart}>Cart</button>
-    </form>
+    <>
+      <form onSubmit={addMedicineHandler}>
+        <label htmlFor="medicineName">Medicine Name:</label>
+        <input
+          type="text"
+          id="medicineName"
+          value={medicineName}
+          onChange={medicineNameHandler}
+          required
+        />
+        <label htmlFor="description">Medicine Description:</label>
+        <input
+          type="text"
+          id="description"
+          value={medicineDescription}
+          onChange={medicineDescriptionHandler}
+          required
+        />
+        <label htmlFor="price">Medicine Price:</label>
+        <input
+          type="number"
+          id="price"
+          value={medicinePrice}
+          onChange={medicinePriceHandler}
+          required
+        />
+        <button type="submit">Add Medicine</button>
+      </form>
+      <CartBtn onClick={props.onShowCart}/>
+    </>
   );
 };
 

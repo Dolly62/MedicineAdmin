@@ -10,7 +10,12 @@ const MedicineList = () => {
       <ul>
         {prdctCtx.medicines.map((medicine) => (
           <li key={medicine.id}>
-            <AddmedBtn>
+            <AddmedBtn
+              id={medicine.id}
+              name={medicine.name}
+              description={medicine.description}
+              price={medicine.price}
+            >
               {medicine.name} - {medicine.description} -{medicine.price}
             </AddmedBtn>
           </li>

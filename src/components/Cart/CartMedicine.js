@@ -2,9 +2,9 @@ import React from 'react'
 
 const CartMedicine = (props) => {
   return (
-    <li>
-      {props.name} - {props.description} - {props.price}
-    </li>
+    <ul>
+      {props.name} - {props.description} - {props.quantity} - {props.price}
+    </ul>
   )
 }
 

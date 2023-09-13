@@ -13,13 +13,16 @@ const Cart = (props) => {
       <button onClick={props.onHideCart}>Close</button>
       <ul>
         {cartCtx.cartMedicines.map((medicine) => (
+          <li key={medicine.id}>
           <CartMedicine
             key={medicine.id}
             name={medicine.name}
             description={medicine.description}
+            quantity={medicine.quantity}
             price={medicine.price}
             onAdd={cartMedicineHandler}
           />
+          </li>
         ))}
       </ul>
     </>

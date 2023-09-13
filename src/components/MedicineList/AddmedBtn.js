@@ -3,12 +3,13 @@ import CartContext from "../store/cart-context";
 
 const AddmedBtn = (props) => {
   const cartCtx = useContext(CartContext);
-  const addToCartHandler = (medicine) => {
+  const addToCartHandler = () => {
     cartCtx.addtoCart({
-      id: medicine.id,
-      medicineName: medicine.name,
-      description: medicine.description,
-      price: medicine.price,
+      id: props.id,
+      name: props.name,
+      description: props.description,
+      quantity: 1,
+      price: props.price,
     });
   };
   return (
